@@ -3,7 +3,7 @@ import QtQuick.Window 2.2
 import QtPositioning 5.7
 import QtLocation 5.6
 import QtQuick.Controls 2.0
-                              // Right Click to zoom in the lines
+
 Rectangle {
 
     property string statename
@@ -442,6 +442,7 @@ Rectangle {
     deststtname:destnamelist[50]
     }
 
+
     MouseArea {
         id: mouseArea28
         anchors.fill: parent
@@ -450,6 +451,7 @@ Rectangle {
         onClicked:
         {
             if (mouse.button == Qt.RightButton){
+                mouseArea28.enabled=false
                 firstline0.hide()
                 firstline1.hide()
                 firstline2.hide()
@@ -501,9 +503,10 @@ Rectangle {
                 firstline48.hide()
                 firstline49.hide()
                 firstline50.hide()
-
+                mouseArea28.enabled=true
             }
             else {
+                mouseArea28.enabled=false
                 firstline0.appear()
                 firstline1.appear()
                 firstline2.appear()
@@ -555,7 +558,7 @@ Rectangle {
                 firstline48.appear()
                 firstline49.appear()
                 firstline50.appear()
-
+                mouseArea28.enabled=true
             }
         }
 

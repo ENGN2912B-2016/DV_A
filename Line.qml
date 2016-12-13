@@ -17,6 +17,7 @@ Rectangle {
         z:-1
         color: 'transparent'
         anchors.centerIn: parent.Center
+        visible: false
         Rectangle{
             id:rect1
             x:0
@@ -35,6 +36,7 @@ Rectangle {
             height: 3/distance*(1+stsdata/1000000)
             color: 'brown'
             opacity: 0.5
+            enabled:false
 
             MouseArea{
                 id: mouseArea2
@@ -121,6 +123,8 @@ Rectangle {
     }
 
     function appear(){
+        idBox.visible=true
+        rect2.enabled=true
         mouseArea2.enabled =true
         rect2.visible = true
         scale.running = true
@@ -128,7 +132,7 @@ Rectangle {
     function hide() {
         scaleback.running = true
         mouseArea2.enabled =false
-
+        rect2.enabled=false
     }
     function isRunning (){
 
