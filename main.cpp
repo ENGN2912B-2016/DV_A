@@ -11,37 +11,9 @@
 #include <QDebug>
 #include "linedata.h"
 
-QVector<lineData> dataRead()
-{
-    QVector<lineData> tmplineAll;
-    QFile datafile("./Desktop/Quick1/stateinflow1415.csv");
-    if(!datafile.open(QIODevice::ReadOnly))
-         qDebug()<<"OPEN FILE FAILED";
-    QTextStream * dataout = new QTextStream(&datafile);
-    QStringList tempOption = dataout->readAll().split("\n");
-    for(int i = 1 ; i < tempOption.count() ; i++)
-    {
-         QStringList tempbar = tempOption.at(i).split(",");
-         lineData tmpl;
-         QString tmpocode=tempbar.at(0);
-         tmpl.orig_code=tmpocode.toUInt();
-         QString tmpdcode=tempbar.at(1);
-         tmpl.orig_code=tmpdcode.toUInt();
-         QString tmpnum=tempbar.at(6);
-         tmpl.number=tmpnum.toUInt();
-         tmplineAll.append(tmpl);
-
-    }
-    datafile.close();
-    return tmplineAll;
-}
-
-
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
-
-
     QVector<lineData> lineAll=dataRead();
     QList<QList<int>> datagroup;
     for(int i=0;i<51;i++){
