@@ -3,7 +3,9 @@ TEMPLATE = app
 QT += qml quick
 CONFIG += c++11
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    dataread.cpp \
+    datacal.cpp
 
 RESOURCES += qml.qrc
 
@@ -15,8 +17,7 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-DISTFILES += \
-    1.png
+DISTFILES +=
 
 HEADERS += \
     states.h \

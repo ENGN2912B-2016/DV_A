@@ -53,8 +53,7 @@ SOURCES       = main.cpp qrc_qml.cpp \
 OBJECTS       = main.o \
 		qrc_qml.o \
 		moc_states.o
-DIST          = 1.png \
-		../../Qt/5.7/clang_64/mkspecs/features/spec_pre.prf \
+DIST          = ../../Qt/5.7/clang_64/mkspecs/features/spec_pre.prf \
 		../../Qt/5.7/clang_64/mkspecs/qdevice.pri \
 		../../Qt/5.7/clang_64/mkspecs/features/device_config.prf \
 		../../qt/5.7/clang_64/mkspecs/common/unix.conf \
@@ -664,10 +663,10 @@ main.o: main.cpp ../../Qt/5.7/clang_64/lib/QtGui.framework/Headers/QGuiApplicati
 		../../Qt/5.7/clang_64/lib/QtQml.framework/Headers/qqmlscriptstring.h \
 		../../Qt/5.7/clang_64/lib/QtQml.framework/Headers/qqmlpropertymap.h \
 		../../Qt/5.7/clang_64/lib/QtQml.framework/Headers/qtqmlversion.h \
+		dataread.cpp \
 		states.h \
 		../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QObject \
 		../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qobject.h \
-		dataread.cpp \
 		../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QList \
 		../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qlist.h \
 		../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QStringList \
@@ -676,7 +675,8 @@ main.o: main.cpp ../../Qt/5.7/clang_64/lib/QtGui.framework/Headers/QGuiApplicati
 		../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qdir.h \
 		../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QDebug \
 		../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qdebug.h \
-		linedata.h
+		linedata.h \
+		datacal.cpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 qrc_qml.o: qrc_qml.cpp 
