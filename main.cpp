@@ -14,7 +14,8 @@
 QVector<lineData> dataRead()
 {
     QVector<lineData> tmplineAll;
-    QFile datafile("/Users/xuenanli/Desktop/stateinflow1415.csv");
+    qDebug()<<QDir::currentPath();
+    QFile datafile("../../../stateinflow1415.csv");
     if(!datafile.open(QIODevice::ReadOnly))
          qDebug()<<"OPEN FILE FAILED";
     QTextStream * dataout = new QTextStream(&datafile);
@@ -71,39 +72,31 @@ int main(int argc, char *argv[])
             }
     }
 
-    QString Hfilename="/Users/xuenanli/Desktop/example.txt";
-       QFile fileH( Hfilename );
-       if ( fileH.open(QIODevice::ReadWrite) )
-       {
-           QTextStream stream( &fileH );
-           for (int i=0; i<51; i++){
-               stream << "Dis:"<<i+1<<"\n";
-               for(int j=0;j<51;j++){
-                   stream << da[i][j][0] <<", ";
-               }
-               stream << "\n\n";
-               stream << "Angle:"<<i+1<<"\n";
-               for(int j=0;j<51;j++){
-                   stream << da[i][j][1] <<", ";
-               }
-               stream << "\n\n";
+//    QString Hfilename="/Users/xuenanli/Desktop/example.txt";
+//       QFile fileH( Hfilename );
+//       if ( fileH.open(QIODevice::ReadWrite) )
+//       {
+//           QTextStream stream( &fileH );
+//           for (int i=0; i<51; i++){
+//              stream << "Dis:"<<i+1<<"\n";
+//               for(int j=0;j<51;j++){
+//                   stream << da[i][j][0] <<", ";
+//               }
+//               stream << "\n\n";
+//               stream << "Angle:"<<i+1<<"\n";
+//               for(int j=0;j<51;j++){
+//                  stream << da[i][j][1] <<", ";
+//               }
+//               stream << "\n\n";
 //               stream << "People";
 //               QList<int> tmp=datagroup.at(i);
-//               for(int j=0;j<51;j++){
-//                   stream << tmp.at(j) <<", ";
+//              for(int j=0;j<51;j++){
+//                  stream << tmp.at(j) <<", ";
 //               }
-           }
-       }
-
-//    states s;
-//    s.setName("Alaska");
-//    s.setTotalIn(150);
-//    for(int i=0;i<51;i++){s.setStaIn(i,da[9][i][1]);}
-
+//           }
+//       }
 
     QQmlApplicationEngine engine;
-//    engine.rootContext()->setContextProperty("s1", &s);
-
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
     return app.exec();
