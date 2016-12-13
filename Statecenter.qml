@@ -3,7 +3,7 @@ import QtQuick.Window 2.2
 import QtPositioning 5.7
 import QtLocation 5.6
 import QtQuick.Controls 2.0
-
+                              // Right Click to zoom in the lines
 Rectangle {
 
     //property int stateradious
