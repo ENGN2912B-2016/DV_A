@@ -40,6 +40,7 @@ Rectangle {
                 id: mouseArea2
                 anchors.fill: parent
                 hoverEnabled: true
+                enabled: false
                 onEntered: {
                     rect3.visible = true
                     rect2.color= 'brown'
@@ -99,7 +100,6 @@ Rectangle {
 
     }
 
-
     ScaleAnimator {
         id:scaleback
         target: idBox;
@@ -108,9 +108,6 @@ Rectangle {
         duration: 500
 
     }
-
-
-
 
     function appear(){
         mouseArea2.enabled =true
