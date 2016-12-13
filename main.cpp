@@ -14,8 +14,7 @@
 QVector<lineData> dataRead()
 {
     QVector<lineData> tmplineAll;
-    qDebug()<<QDir::currentPath();
-    QFile datafile("../../../stateinflow1415.csv");
+    QFile datafile("./Desktop/Quick1/stateinflow1415.csv");
     if(!datafile.open(QIODevice::ReadOnly))
          qDebug()<<"OPEN FILE FAILED";
     QTextStream * dataout = new QTextStream(&datafile);
