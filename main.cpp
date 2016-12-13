@@ -10,6 +10,7 @@
 #include <QDir>
 #include <QDebug>
 #include "linedata.h"
+
 QVector<lineData> dataRead()
 {
     QVector<lineData> tmplineAll;
@@ -18,12 +19,14 @@ QVector<lineData> dataRead()
          qDebug()<<"OPEN FILE FAILED";
     QTextStream * dataout = new QTextStream(&datafile);
     QStringList tempOption = dataout->readAll().split("\n");
-    for(int i = 6 ; i < tempOption.count() ; i++)
+    for(int i = 1 ; i < tempOption.count() ; i++)
     {
          QStringList tempbar = tempOption.at(i).split(",");
          lineData tmpl;
-         tmpl.orig_code=tempbar.at(0);
-         tmpl.dest_code=tempbar.at(1);
+         QString tmpocode=tempbar.at(0);
+         tmpl.orig_code=tmpocode.toUInt();
+         QString tmpdcode=tempbar.at(1);
+         tmpl.orig_code=tmpdcode.toUInt();
          QString tmpnum=tempbar.at(6);
          tmpl.number=tmpnum.toUInt();
          tmplineAll.append(tmpl);
@@ -33,30 +36,25 @@ QVector<lineData> dataRead()
     return tmplineAll;
 }
 
-//double calDis(int x1, int y1, int x2, int y2) {
-//    double dis=sqrt(pow((x2-x1),2)+pow((y2-y1),2));
-//    return dis;
-//}
-//double calAtan(int x1, int y1, int x2, int y2) {
-//    double tan=(y2-y1)/(x2-x1);
-//    double  theta=atan(tan);
-//    return theta;
-//}
-
-//void calAll(int x[50], int y[50]) {
-
-//    for (int i=0;i<50;i++){
-//        for (int j=0;j<50;j++){
-//            da[i][j][0]=calDis(x[i],y[i],x[j],y[j]);
-//            da[i][j][1]=calAtan(x[i],y[i],x[j],y[j]);
-//        }
-//    }
-//}
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
+
+
     QVector<lineData> lineAll=dataRead();
+    QList<QList<int>> datagroup;
+    for(int i=0;i<51;i++){
+        QList<int> tmp;
+        datagroup.append(tmp);
+    }
+    for(int i=0;i<51;i++){
+        QList<int> tmp=datagroup.at(i);
+        for(int j=0;j<51;j++){
+            tmp.append(lineAll.at(i*51+j).number);
+        }
+    }
+
 
     static double da[51][51][2];
     int x[51] = {650,98,180,537,51,305,881,854,826,775,717,292,169,603,658,525,439,685,552,
@@ -79,17 +77,32 @@ int main(int argc, char *argv[])
        {
            QTextStream stream( &fileH );
            for (int i=0; i<51; i++){
-               stream << da[9][i][1] <<", ";
+               stream << "Dis:"<<i+1<<"\n";
+               for(int j=0;j<51;j++){
+                   stream << da[i][j][0] <<", ";
+               }
+               stream << "\n\n";
+               stream << "Angle:"<<i+1<<"\n";
+               for(int j=0;j<51;j++){
+                   stream << da[i][j][1] <<", ";
+               }
+               stream << "\n\n";
+//               stream << "People";
+//               QList<int> tmp=datagroup.at(i);
+//               for(int j=0;j<51;j++){
+//                   stream << tmp.at(j) <<", ";
+//               }
            }
        }
 
-    states s;
-    s.setName("Alaska");
-    s.setTotalIn(150);
+//    states s;
+//    s.setName("Alaska");
+//    s.setTotalIn(150);
+//    for(int i=0;i<51;i++){s.setStaIn(i,da[9][i][1]);}
 
 
     QQmlApplicationEngine engine;
-    engine.rootContext()->setContextProperty("s1", &s);
+//    engine.rootContext()->setContextProperty("s1", &s);
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 

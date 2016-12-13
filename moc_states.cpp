@@ -9,6 +9,7 @@
 #include "states.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
+#include <QtCore/QList>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'states.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
@@ -19,8 +20,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_states_t {
-    QByteArrayData data[5];
-    char stringdata0[24];
+    QByteArrayData data[8];
+    char stringdata0[45];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -30,13 +31,17 @@ struct qt_meta_stringdata_states_t {
 static const qt_meta_stringdata_states_t qt_meta_stringdata_states = {
     {
 QT_MOC_LITERAL(0, 0, 6), // "states"
-QT_MOC_LITERAL(1, 7, 6), // "method"
-QT_MOC_LITERAL(2, 14, 0), // ""
-QT_MOC_LITERAL(3, 15, 5), // "total"
-QT_MOC_LITERAL(4, 21, 2) // "na"
+QT_MOC_LITERAL(1, 7, 8), // "getStaIn"
+QT_MOC_LITERAL(2, 16, 0), // ""
+QT_MOC_LITERAL(3, 17, 1), // "i"
+QT_MOC_LITERAL(4, 19, 5), // "total"
+QT_MOC_LITERAL(5, 25, 2), // "na"
+QT_MOC_LITERAL(6, 28, 5), // "staIn"
+QT_MOC_LITERAL(7, 34, 10) // "QList<int>"
 
     },
-    "states\0method\0\0total\0na"
+    "states\0getStaIn\0\0i\0total\0na\0staIn\0"
+    "QList<int>"
 };
 #undef QT_MOC_LITERAL
 
@@ -47,21 +52,22 @@ static const uint qt_meta_data_states[] = {
        0,       // classname
        0,    0, // classinfo
        1,   14, // methods
-       2,   20, // properties
+       3,   22, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
        0,       // signalCount
 
  // methods: name, argc, parameters, tag, flags
-       1,    0,   19,    2, 0x02 /* Public */,
+       1,    1,   19,    2, 0x02 /* Public */,
 
  // methods: parameters
-    QMetaType::Void,
+    QMetaType::Int, QMetaType::Int,    3,
 
  // properties: name, type, flags
-       3, QMetaType::Int, 0x00095001,
-       4, QMetaType::QString, 0x00095001,
+       4, QMetaType::Int, 0x00095001,
+       5, QMetaType::QString, 0x00095001,
+       6, 0x80000000 | 7, 0x00095009,
 
        0        // eod
 };
@@ -72,10 +78,18 @@ void states::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         states *_t = static_cast<states *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->method(); break;
+        case 0: { int _r = _t->getStaIn((*reinterpret_cast< int(*)>(_a[1])));
+            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
         default: ;
         }
+    } else if (_c == QMetaObject::RegisterPropertyMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+        case 2:
+            *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QList<int> >(); break;
+        }
     }
+
 #ifndef QT_NO_PROPERTIES
     else if (_c == QMetaObject::ReadProperty) {
         states *_t = static_cast<states *>(_o);
@@ -84,13 +98,13 @@ void states::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         switch (_id) {
         case 0: *reinterpret_cast< int*>(_v) = _t->total(); break;
         case 1: *reinterpret_cast< QString*>(_v) = _t->na(); break;
+        case 2: *reinterpret_cast< QList<int>*>(_v) = _t->staIn(); break;
         default: break;
         }
     } else if (_c == QMetaObject::WriteProperty) {
     } else if (_c == QMetaObject::ResetProperty) {
     }
 #endif // QT_NO_PROPERTIES
-    Q_UNUSED(_a);
 }
 
 const QMetaObject states::staticMetaObject = {
@@ -130,17 +144,17 @@ int states::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
    else if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
             || _c == QMetaObject::ResetProperty || _c == QMetaObject::RegisterPropertyMetaType) {
         qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 3;
     } else if (_c == QMetaObject::QueryPropertyDesignable) {
-        _id -= 2;
+        _id -= 3;
     } else if (_c == QMetaObject::QueryPropertyScriptable) {
-        _id -= 2;
+        _id -= 3;
     } else if (_c == QMetaObject::QueryPropertyStored) {
-        _id -= 2;
+        _id -= 3;
     } else if (_c == QMetaObject::QueryPropertyEditable) {
-        _id -= 2;
+        _id -= 3;
     } else if (_c == QMetaObject::QueryPropertyUser) {
-        _id -= 2;
+        _id -= 3;
     }
 #endif // QT_NO_PROPERTIES
     return _id;
