@@ -8,8 +8,8 @@
 #include <QDebug>
 #include "linedata.h"
 
-QVector<lineData> dataRead()
-{
+QVector<lineData> dataRead(){
+
     QVector<lineData> tmplineAll;
     //qDebug()<<QDir::currentPath();
     QString c=QCoreApplication::applicationDirPath();

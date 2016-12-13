@@ -80,43 +80,52 @@ Rectangle {
         }
     }
 
+    SequentialAnimation {
+        id: scale
+        running: false
 
+        RotationAnimator {
+            id:rotation
+            target: idBox;
+            from: 0;
+            to: angle;
+            duration: 10
+        }
 
-
-    RotationAnimator {
-        id:rotation
-        target: idBox;
-        from: 0;
-        to: angle;
-        duration: 0
+        ScaleAnimator {
+            target: idBox;
+            from: 1;
+            to: distance;
+            duration: 500
+        }
     }
 
-    ScaleAnimator {
-        id:scale
-        target: idBox;
-        from: 1;
-        to: distance;
-        duration: 500
+    SequentialAnimation {
+        id: scaleback
+        running: false
 
-    }
+        RotationAnimator {
+            id:rotation2
+            target: idBox;
+            from: 0;
+            to: angle;
+            duration: 0
+        }
 
-    ScaleAnimator {
-        id:scaleback
-        target: idBox;
-        from: distance;
-        to: 1;
-        duration: 500
-
+        ScaleAnimator {
+            target: idBox;
+            from: distance;
+            to: 1;
+            duration: 500
+        }
     }
 
     function appear(){
         mouseArea2.enabled =true
         rect2.visible = true
-        rotation.running = true
         scale.running = true
     }
     function hide() {
-        //rect2.visible = false
         scaleback.running = true
         mouseArea2.enabled =false
 
