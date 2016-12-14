@@ -18,7 +18,7 @@ QVector<lineData> dataRead(){
          qDebug()<<"OPEN FILE FAILED";
     QTextStream * dataout = new QTextStream(&datafile);
     QStringList tempOption = dataout->readAll().split("\n");
-    for(int i = 1 ; i < tempOption.count() ; i++)
+    for(int i = 0 ; i < tempOption.count() ; i++)
     {
          QStringList tempbar = tempOption.at(i).split(",");
          lineData tmpl;
@@ -29,7 +29,7 @@ QVector<lineData> dataRead(){
          QString tmpnum=tempbar.at(6);
          tmpl.number=tmpnum.toUInt();
          tmplineAll.append(tmpl);
-
+         //qDebug()<<tmpocode<<", "<<tmpdcode<<", "<<tmpnum<<"\n";
     }
     datafile.close();
     return tmplineAll;
