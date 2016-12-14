@@ -12,8 +12,8 @@ Rectangle {
     Rectangle{
 
         id: idBox
-        width: 2
-        height: 3/distance* (1+stsdata/1000000)
+        width: 1
+        height: 1.5/distance* (1+stsdata/1000000)
         z:-1
         color: 'transparent'
         anchors.centerIn: parent.Center
@@ -22,18 +22,18 @@ Rectangle {
             id:rect1
             x:0
             y:0
-            width: 1
-            height: 3/distance*(1+stsdata/1000000)
+            width: 0.5
+            height: 1.5/distance*(1+stsdata/1000000)
             color:"transparent"
             visible: false
         }
         Rectangle{
             id:rect2
-            x:1
+            x:0.5
             y:0
             radius: height
-            width: 1
-            height: 3/distance*(1+stsdata/1000000)
+            width: 0.5
+            height: 1.5/distance*(1+stsdata/1000000)
             color: 'brown'
             opacity: 0.5
             enabled:false
@@ -97,7 +97,7 @@ Rectangle {
         ScaleAnimator {
             target: idBox;
             from: 1;
-            to: distance;
+            to: 2*distance;
             duration: 500
         }
     }
@@ -116,7 +116,7 @@ Rectangle {
 
         ScaleAnimator {
             target: idBox;
-            from: distance;
+            from: 2*distance;
             to: 1;
             duration: 500
         }
