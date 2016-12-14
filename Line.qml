@@ -23,7 +23,7 @@ Rectangle {
         id: idBox
         width: 1
         height: 1.5/distance* (1+stsdata/1000000)
-        z:-1
+        z:0
         color: 'transparent'
         anchors.centerIn: parent.Center
         visible: false
@@ -40,6 +40,7 @@ Rectangle {
             id:rect2
             x:0.5
             y:0
+            z:2
             radius: height
             width: 0.5
             height: 1.5/distance*(1+stsdata/1000000)
@@ -70,16 +71,19 @@ Rectangle {
         id:rect3
         x:50
         y:50
-        width: 250
+        z:20
+        width: 300
         height: 110
         color:"white"
         border.color: "black"
         border.width: 1.5
         visible: false
+
         Text{
             x:10
             y:50
             text: qsTr("From "+deststtname +" to " +statename+ ": "+ stsdata)
+            anchors.horizontalCenter: parent.horizontalCenter
         }
         Text{
             x:10
@@ -88,6 +92,7 @@ Rectangle {
             font.family: "Helvetica"
             font.pointSize: 13
             text: qsTr(deststtname+"->" +statename )
+            anchors.horizontalCenter: parent.horizontalCenter
         }
     }
 

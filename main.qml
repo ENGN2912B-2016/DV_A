@@ -5,13 +5,14 @@ import QtQuick.Controls 2.0
 Window {
     id : mainWindow
     visible: true
-    width: 1100
+    width: 1250
     height: 715
     property alias image1: image1
     Text {
         anchors.bottom: parent.bottom
         anchors.right: parent.right
         text: qsTr("Copyright(C) 2016 Brown University ENGN2912B DV-A")
+        opacity: 0.8
     }
 
     Image {
@@ -20,6 +21,14 @@ Window {
         height: 615
         fillMode: Image.PreserveAspectFit
         source: "1.png"
+
+        Text {
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: qsTr("U.S. Migration Map v1.0 -StateInFlow 2014-2015")
+            color: "lightblue"
+            font.pixelSize: 20
+            opacity: 0.95
+        }
 
     }
 

@@ -36,8 +36,8 @@ void dataCal(){
             tmp.append(lineAll.at(i*51+j).number);
         }
     }
-
-    QString Hfilename="/Users/xuenanli/Desktop/example.txt";
+    QString c=QCoreApplication::applicationDirPath();
+    QString Hfilename=c+"/data.txt";
     QFile fileH( Hfilename );
     if ( fileH.open(QIODevice::ReadWrite) ) {
         QTextStream stream( &fileH );
