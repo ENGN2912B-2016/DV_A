@@ -9,6 +9,15 @@ Rectangle {
     property int stsdata;
     property string deststtname;
     anchors.centerIn: parent
+
+    Component.onCompleted: {
+            if(distance==0){
+                idBox.height=0
+                rect1.height=0
+                rect2.height=0
+            }
+        }
+
     Rectangle{
 
         id: idBox
