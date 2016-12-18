@@ -94,6 +94,15 @@ Rectangle {
             text: qsTr(deststtname+"->" +statename )
             anchors.horizontalCenter: parent.horizontalCenter
         }
+        Text{
+            x:10
+            y:70
+            font.bold: true
+            font.family: "Helvetica"
+            font.pointSize: 12
+            text: qsTr("unit: thousand dollars" )
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
     }
 
     SequentialAnimation {

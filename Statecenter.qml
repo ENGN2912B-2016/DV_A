@@ -24,15 +24,15 @@ Rectangle {
     opacity: 0.6
 
     Popup {
-            id: toolTip28
-            x:0
-            y:statecircle.width + 20
-            implicitHeight: 80
-            Text {
-                text: statename + "\n" + "Migration in: " + stateoutdata + "\n"+ "Click to show"+"\n" +"Right click to return."
-            }
+        id: toolTip28
+        x:0
+        y:statecircle.width + 20
+        implicitHeight: 100
+        Text {
+            text: statename + "\n" + "Migration in: " + stateoutdata + "\nunit: thousand dollars"+"\n"+ "Click to show"+"\n" +"Right click to return."
 
-            }
+        }
+    }
 
     Line {
     id:firstline0
